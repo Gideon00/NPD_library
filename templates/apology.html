@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Apology
+{% endblock %}
+
+{% block style %}
+<style> body {background-color: antiquewhite;} </style>
+{% endblock %}
+
+{% block body %}
+    <div id="container">
+        <!-- https://memegen.link/ -->
+        <center>
+            <img alt="{{ top }}" class="border img-fluid" src="http://memegen.link/custom/{{ top | urlencode }}/{{ bottom | urlencode }}.jpg?alt=https://i.imgur.com/CsCgN7Ll.png&width=400" title="{{ top }}">
+        </center>
+    </div>
+{% endblock %}

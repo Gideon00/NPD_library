@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    homepage
+{% endblock %}
+
+{% block style %}
+<style> body {
+    background-image: url('static/cmda-images/bg2-image.jpg');
+    background-color: black;
+    background-size: cover;
+    }
+</style>
+{% endblock %}
+
+{% block navbar_class %}
+    bg-transparent border navbar navbar-expand-md navbar-dark
+{% endblock %}
+
+{% block body %}
+
+ <div class="second-header">
+
+    <a id="headText" class="prayer-section" href="https://cmdanigeria.org/blog/">
+       <img src="static/Icons/prayer-icon.png" alt="News" class="prayer-icon">
+       <div class="prayer">News & Update</div>
+    </a>
+
+    <a id="headText" class="daily-bible-section" href="https://cmdanigeria.org/store/">
+       <img src="static/Icons/hamburger-icon.png" alt="Bible" class="daily-bible-icon">
+       <div class="daily-bible">Online Store</div>
+    </a>
+
+    <a id="headText" class="counsel-section" href="https://cmdanigeria.org/who-we-are/students-national-executives/">
+       <img src="static/Icons/counsel.png" alt="NEC" class="counsel-icon">
+       <div class="counsel">National Exco</div>
+    </a>
+ </div>
+<div class="welcome">
+    <h3>
+        {% if session["username"] %}{{ session["username"] }}!!{% endif %}<br>
+        📚 Welcome to NPD's Library — Your Gateway to a World of Knowledge 🌍
+    </h3>
+    <p>
+        Dive into the enchanting realm of literature with NPD's Library, where words come alive, and stories unfold.
+        We invite you to embark on a journey of discovery, empowerment, and imagination through our vast digital 
+        <a class="shelfLink" href="/shelf">library.</a>
+    </p>
+
+    <h5>🌟 **What Sets Us Apart?**</h5>
+    <p>
+        At NPD's Library, we go beyond the ordinary. Here, you're not just a reader; you're an explorer navigating through a rich tapestry of books across genres.
+        From timeless classics to contemporary gems, our curated collection caters to every literary palate.
+    </p>
+
+    <h5>🌐 **Endless Exploration**</h5>
+    <p>Browse our extensive digital shelves and unearth literary treasures waiting to be discovered. Whether you're an avid reader, a casual browser, or a seeker of knowledge,
+        NPD's Library is your passport to a world of diverse perspectives and gripping narratives.
+    </p>
+
+    <h5>⭐ **User-Powered Ratings**</h5>
+    <p>Empower your reading journey with the collective wisdom of our community. Rate and review books to guide fellow readers toward captivating stories and thought-provoking reads.
+        Your opinion matters, and together, we elevate the reading experience for everyone.
+    </p>
+
+    <h5>🔒 **Secure and Seamless Downloads**</h5>
+    <p>
+        For our registered users, the adventure doesn't end with exploration.
+        Enjoy the convenience of secure and seamless book downloads, bringing your favorite titles to your fingertips. Wherever you go, your library follows.
+    </p>
+
+    <h5>📖 **Join Us in the Storytelling Odyssey**</h5>
+    <p>
+        NPD's Library is more than a collection of books; it's a celebration of stories and the magic they weave. Join our vibrant community of readers, writers, and thinkers. 
+        Let's embark on this storytelling odyssey together.
+    </p>
+    <br>
+    <p>Ready to embark on a literary adventure? 
+        {% if session["username"] %} 
+            Search our <a class="shelfLink" href="/shelf">Shelf</a> 
+        {% else %}
+            <a href="/register">Sign up</a> or <a href="/login">Sign In</a>
+        {% endif %} 
+            now and let the pages of NPD's Library unfold before you.</p>
+    <br>
+    <br>
+    <h3>Happy Reading! 📚✨</h3>
+</div>
+
+{% endblock %}

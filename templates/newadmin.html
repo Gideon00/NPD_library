@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Admin
+{% endblock %}
+
+{% block style %}
+<style>
+    table th,
+    table td {
+    width: 30%;
+    padding: 0.75rem;
+    vertical-align: middle;
+}
+nav .navbar-nav .nav-item .nav-link
+    {
+        color: black;
+    }
+body {
+   color: black;
+   background-color: antiquewhite;
+   }
+</style>
+{% endblock %}
+
+{% block body %}
+
+<div>
+    {% if session["user_id"] not in admins %}
+    <h2>You are No longer an Admin!</h2>
+    {% else %}
+    <h2>All Library Users</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Username</th>
+                <th>Make Admin</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- TODO: Loop through the database entries to display them in this table -->
+            {% for user in users %}
+            <tr>
+                
+                <td>{{ user.name }}</td>
+                <td>{{ user.username }}</td>
+                <td>{% if session["user_id"] == user.id or user.id in admins%}
+                    
+                    <form id="form-admin" action="/de_admin" method="post">
+                        <input type="hidden" name="csrf_token" value = "{{ csrf_token() }}" />
+                        <input class="btn btn-dark" type="submit" value="De Admin">
+                        <input type="hidden" value="{{ user.id }}" name="id">
+                        <input type="hidden" value="{{ user.mail }}" name="mail">
+                        <input type="hidden" value="{{ user.name }}" name="name">
+                    </form>
+                    {% else %}
+                    <form id="form-admin" action="/new_admin" method="post">
+                        <input type="hidden" name="csrf_token" value = "{{ csrf_token() }}" />
+                        <input class="btn btn-primary" type="submit" value="Make Admin">
+                        <input type="hidden" value="{{ user.id }}" name="id">
+                        <input type="hidden" value="{{ user.mail }}" name="mail">
+                        <input type="hidden" value="{{ user.name }}" name="name">
+                    </form>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</div>
+{% endblock%}

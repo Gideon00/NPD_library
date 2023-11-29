@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    registeration
+{% endblock %}
+
+{% block style %}
+<style> body {
+    background-image: url('static/cmda-images/bg-image.jpg');
+    background-size: cover;
+    background-color: black;
+    }
+ </style>
+ {% endblock %}
+
+{% block navbar_class %}
+    bg-transparent border navbar navbar-expand-md navbar-dark
+{% endblock %}
+
+{% block body %}
+    <!--HEADER SECTION-->
+        <header class="cmda-logo">
+            <img class="login_logo" src="static/cmda-images/cmda-logo.png" alt="cmda_logo">
+        </header>
+
+    <center>
+        <form class="login-preview" id="regform" action="/register" method="post">
+            <input type="hidden" name="csrf_token" value = "{{ csrf_token() }}" />
+            <div class="login">Sign up</div>
+
+            <div class="mb-3">
+                <p>Full Name
+                    <input required autocomplete="off" name="fullname" type="text" placeholder="Name">
+                </p>
+            </div>
+
+            <div class="mb-3">
+                <p>Username
+                    <input required autocomplete="off" name="username" type="text" placeholder="username">
+                </p>
+            </div>
+
+            <div class="mb-3">
+                <p>Password
+                    <input required autocomplete="off" name="password" type="password" placeholder="Password">
+                </p>
+            </div>
+            
+            <div class="mb-3">
+                <p>Confirm password
+                    <input required name="confirmation" type="password" placeholder="Confirm password">
+                </p>
+            </div>
+
+            <div class="mb-3">
+                <p>E-Mail
+                    <input required name="mail" type="email" placeholder="e-mail">
+                </p>
+            </div>
+            <div class="login-button">
+                <button class="log-button" type="submit">Sign up</button>
+            </div>
+        </form>
+    </center><br>
+    
+{% endblock %}

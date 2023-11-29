@@ -1,0 +1,566 @@
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+nav .navbar-nav .nav-item .nav-link
+{
+   color: white;
+}
+
+body {
+   color: white;
+   display: grid;
+   grid-template-rows: auto 1fr auto;
+   grid-template-columns: 100%;
+   min-height: 100vh;
+   font-family: "Alegreya Sans";
+  
+}
+/* Suggestions Page */
+table {
+   background-color: transparent;
+   width: 100%;
+}
+
+table th,
+table td {
+    padding: 0.75rem;
+    vertical-align: middle;
+}
+tbody tr:nth-of-type(odd) {
+   background-color:rgb(245, 204, 150);
+}
+/* Home Page /////////////////////////////////////////////////////////////////////////*/
+
+ .hamburger-sign {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+ }
+ 
+ .hamburger {
+    width: 50px;
+    cursor: pointer;
+ }
+ 
+ .second-header {
+   display: flex;
+   flex-wrap: wrap;
+ }
+ 
+ .prayer-icon {
+    width: 50px;
+    background-color: rgba(250, 250, 250, 0.8);
+    padding-bottom: 10px;
+    padding-right: 4px;
+    padding-left: 4px;
+    border-radius: 30px;
+    cursor: pointer;
+ }
+ 
+ .prayer-section {
+   width: 35%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+ }
+ 
+ .prayer {
+    font-size: 20px;
+    font-family: Roboto, Arial;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: 2px solid white;
+    margin-left: 10px;
+    border-radius: 20px;
+    width: 250px;
+    height: 40px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    transition: color 0.2s;
+ }
+ 
+ .prayer:hover {
+    background-color: rgba(250, 250, 250, 0.6);
+    color: black;
+ }
+ 
+ .daily-bible-section {
+   width: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;  
+ }
+ 
+ .daily-bible {
+    font-size: 20px;
+    font-family: Roboto, Arial;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: 2px solid white;
+    margin-left: 10px;
+    border-radius: 20px;
+    width: 250px;
+    height: 40px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    transition: color 0.2s;  
+ }
+ 
+ .daily-bible-icon {
+    width: 50px;
+    background-color: rgba(250, 250, 250, 0.3);
+    padding-bottom: 5px;
+    padding-right: 4px;
+    padding-left: 4px;
+    border-radius: 30px;
+    cursor: pointer;  
+ }
+ 
+ .daily-bible:hover {
+    background-color: rgba(250, 250, 250, 0.6);
+    color: black;
+ }
+ 
+ .counsel-section {
+   width: 35%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;  
+ }
+ 
+ .counsel {
+    font-size: 20px;
+    font-family: Roboto, Arial;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: 2px solid white;
+    margin-left: 10px;
+    border-radius: 20px;
+    width: 250px;
+    height: 40px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    transition: color 0.2s; 
+ }
+ 
+ .counsel:hover {
+    background-color: rgba(250, 250, 250, 0.6);
+    color: black;
+ }
+ 
+ 
+ .counsel-icon {
+    width: 50px;
+    background-color: rgba(250, 250, 250, 0.6);
+    padding-bottom: 10px;
+    padding-right: 4px;
+    padding-left: 4px;
+    border-radius: 30px;
+    cursor: pointer;  
+ }
+ 
+#headText {
+   text-decoration: none;
+}
+
+@media (max-width: 818px) {
+   #headText {
+      font-size: 10px;
+   }
+}
+
+ @media (max-width: 636px) {
+   .second-header {
+      display: grid;
+      grid-template-columns: auto;
+
+     }
+  .prayer-section{
+   width: 100%;
+  }
+  .counsel-section {
+   width: 100%;
+   }
+   .daily-bible-section {
+      width: 100%;
+   }
+ }
+ 
+ /* Slides Still on Home page*/
+ /* Google Fonts - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", "sans-serif";
+}
+body {
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+.overlay::after {
+    border-radius: 0 25px 0 0;
+    background-color: #FFF;
+}
+.card-image {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background-color: #FFF;
+    padding: 3px;
+} 
+ .card-image .card-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid blue;
+} 
+.name {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+}
+.description {
+    font-size: 14px;
+    color: #707070;
+    text-align: center;
+}
+.button {
+    border: none;
+    font-size: 16px;
+    color: #FFF;
+    padding: 8px 16px;
+    background-color: #4070F4;
+    border-radius: 6px;
+    margin: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.button:hover {
+    background: #265df2;
+} */
+
+
+
+/* Login and Registration /////////////////////////////////////////////////////////////////////////*/
+/*LOGIN STYLE SECTION*/
+
+.login_logo {
+   float: center;
+ }
+ 
+ /*Edit here */
+ .login-preview {
+    background-color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    color: #000;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*position: absolute;*/
+    border-radius: 30px;
+    border: 4px solid white;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.8);
+ }
+ 
+ @media (max-width: 600px) {
+   .login-preview {
+      width: 250px;
+      color: #000;
+    }
+ }
+ .login {
+    font-size: 30px;
+    font-family: Roboto, Arial;
+    font-weight: bold;
+    padding-bottom: 15px;
+ }
+ .login-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ }
+ 
+ .log-button {
+    font-size: 18px;
+    padding: 4px;
+    width: 150px;
+    background-color: rgba(250, 250, 250, 0.3);
+    border: 2px solid white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.5s;
+ }
+ .log-button:hover {
+    background-color: transparent;
+ }
+ 
+ .username, .password {
+    font-size: 16px;
+    font-family: Roboto, Arial;
+ }
+ 
+ input {
+    width: 450px;
+    height: 35px;
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: rgb(234, 234, 234);
+    border: 2px solid white;
+    border-radius: 4px;
+ }
+ @media (max-width: 600px) {
+    input {
+       width: 100px;
+    }
+ }
+ 
+ .signup-options {
+   padding-top: 50px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+ }
+ 
+ .create-account-link, .forgot-password-link {
+    text-decoration: none;
+    color: black;
+ }
+ a:hover {
+    color: blue;
+ }
+ 
+ .forgot-password-link {
+    font-size: 10px;
+ }
+.shelfLink {
+   text-decoration: none;
+}
+
+/* footer ////////////////////////////////////////////////////////////////////////////////////////////////*/
+footer {
+   bottom: 0;
+   width: 100%;
+   color: #fff;
+   position: relative;
+   padding: 100px 0 30px;
+   border-top-left-radius: 125px;
+   border-bottom-right-radius: 80px;
+   line-height: 20px;
+   background: linear-gradient(to right, #00093c, #2d0b00);
+}
+
+.row-foot {
+   width: 85%;
+   margin: auto;
+   display: flex;
+   flex-wrap: wrap;
+   align-items: flex-start;
+   justify-content: space-between;
+}
+
+.foot-col {
+   flex-basis: 25%;
+   padding: 10px;
+}
+.foot-col:nth-child(2), .foot-col:nth-child(3){
+   flex-basis: 15%;
+}
+
+
+.foot-col h3 {
+   width: fit-content;
+   margin-bottom: 40px;
+   position: relative;
+}
+.foot-mail {
+   width: fit-content;
+   border-bottom: 1px solid #ccc;
+   margin: 20px 0;
+}
+
+ul li {
+   list-style: none;
+   margin-bottom: 12px;
+}
+
+ul li a{
+   text-decoration: none;
+   color: white;
+}
+
+.social-icons .fa-brands{
+   width: 40px;
+   height: 40px;
+   text-align: center;
+   border-radius: 50%;
+   line-height: 40px;
+   font-size: 20px;
+   color: #000;
+   background: #fff;
+   margin-right: 15px;
+   cursor: pointer;
+}
+
+.copyright {
+   text-align: center;
+}
+hr{
+   width: 90%;
+   border: 0;
+   border-bottom: 1px solid #ccc;
+   margin: 20px auto;
+}
+.underline {
+   width: 100%;
+   height: 5px;
+   background: #767676;
+   border-radius: 3px;
+   position: absolute;
+   top: 30px;
+   left: 0;
+   overflow: hidden;
+}
+.underline span {
+   width: 15px;
+   height: 100%;
+   background: #fff;
+   border-radius: 3px;
+   position: absolute;
+   top: 0;
+   left: 10px;
+   animation: moving 2s linear infinite;
+}
+@keyframes moving {
+   0%{
+      left: 0px;
+   }
+   100%{
+      left: 100%;
+   }
+}
+@media (max-width: 600px) {
+   footer {
+      bottom: unset;
+   }
+   .foot-col {
+      flex-basis: 100%;
+   }
+   .foot-col:nth-child(2), .foot-col:nth-child(3){
+      flex-basis: 100%;
+   }
+}
+
+.bigContainer {
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+   margin: 0;
+}
+#container {
+   display: grid;
+   grid-template-rows: auto 1fr auto;
+   grid-template-columns: 100%;
+   min-height: 100vh;
+}
+
+#showBooks {
+   /* background-color: rgb(155, 129, 94); */
+   display: flex;
+   flex-wrap: wrap;
+}
+
+/* Book Shelf style properties */
+#showBooks > div {
+   background-color: white;
+   border: 2px solid white;
+   border-radius: 10px;
+   font-size: 20px;
+   margin: 2px;
+   padding: 20px;
+   width: 200px;
+   
+}
+#showBooks > div:hover {
+   background-color: rgb(238, 211, 176);
+}
+.container > div {
+   margin: 10px;
+}
+.download-btn {
+   background-color: dodgerblue;
+   border: none;
+   border-radius: 10px;
+   color: white;
+   padding: 10px;
+   cursor: pointer;
+   font-size: 15px;
+   text-decoration: none;
+}
+.download-btn:hover{
+   background-color: RoyalBlue;
+   color: white;
+}
+
+.cover_img {
+height: 100%;
+width: 100%;
+object-fit: cover;
+border-radius: 10%;
+border: 4px solid black;
+}
+
+#shelf_img {
+   height: 170px;
+   width: 170px;
+   /* background-color: blue; */
+}
+.checked {
+   color: orange;
+}
+.shelf_text {
+   font-size: 10px;
+}

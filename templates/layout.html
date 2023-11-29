@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width", initia-scale="1.0">
+
+        <!-- http://getbootstrap.com/docs/5.1/ -->
+        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" rel="stylesheet">
+        <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+        <script src='https://kit.fontawesome.com/3eb68ab6f1.js' crossorigin='anonymous'></script>
+        
+
+
+        
+        <!-- https://favicon.io/emoji-favicons/money-bag/ -->
+        <link href="/static/favicon.ico" rel="icon">
+        <link href="https://fonts.googleapis.com/css?family=Alegreya Sans" rel="stylesheet">
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>CMDA: {% block title %}{% endblock %}</title>
+
+        {% block style %}
+        {% endblock %}
+    </head>
+    <body>
+      <div id="container">
+        <nav class="{% block navbar_class %}bg-transparent border navbar navbar-expand-md navbar-light{% endblock %}">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/"><span class="blue">C</span><span class="red">M</span><span class="yellow">D</span><span class="green">A</span> <span class="red">Library</span></a>
+                <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar">
+                    {% if session["user_id"] %}
+                        <ul class="navbar-nav me-auto mt-2">
+                            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/shelf">Book Shelf</a></li>
+                            {% if session["user_id"] in session["admins"] %}
+                            <li class="nav-item"><a class="nav-link" href="/addbook">Librarian</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/new_admin">Add Amin</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/suggestionsPage">Suggestions</a></li>
+                            {% else %}
+                            {% endif %}
+                        </ul>
+                        <ul class="navbar-nav ms-auto mt-2">
+                            <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
+                        </ul>
+                    {% else %}
+                        <ul class="navbar-nav ms-auto mt-2">
+                            <li class="nav-item"><a class="nav-link" href="/register">Sign up</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/login">Sign In</a></li>
+                        </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+        <div class="bigContainer">
+            {% block body %}
+            {% endblock %}
+        </div>
+    </div>
+        <footer>
+            <div class="row-foot">
+
+            
+                <div class="foot-col">
+                    <img id="media_icons" src="static/cmda-images/cmda-logo.png" alt="facebook_icon">
+                    <p>The Christian Medical and Dental Association of Nigeria (CMDA Nigeria) is a network of Christian Medical and 
+                        Dental practitioners registered with the Medical and Dental Councils within or outside Nigeria, 
+                        and students studying for the same qualification.
+                    </p>
+                </div>
+                <div class="foot-col">
+                    <h3>Office <div class="underline"><span></span></div></h3>
+                    <h5>Global Network Office</h5>
+                    <p>1928 Woodlawn Drive, Woodlawn, Maryland, 21207</p>
+                    <p>1-(443) 527-4199</p>
+                    <p>info@cmdanigeriaglobal.org</p>
+
+                    <h5><u>National Office</u></h5>
+                    <p>Whitefield, Bangalore</p>
+                    <p>Wholeness House Gwagwalada, FCT.</p>
+                    <p>+234 (809) 153 3339</p>
+                    
+                    <p class="foot-mail">office@cmdanigeria.org</p>
+                </div>
+                <div class="foot-col">
+                    <h3>Links <div class="underline"><span></span></div></h3>
+                    <ul>
+                        <li><a href="https://cmdanigeria.org/who-we-are/">Who We Are</a></li>
+                        <li><a href="https://cmdanigeria.org/what-we-do/">What We Do</a></li>
+                        <li><a href="https://cmdanigeria.org/get-involved/">Get Involved</a></li>
+                        <li><a href="https://cmdanigeria.org/events/">Events</a></li>
+                        <li><a href="https://cmdanigeria.org/contact-us/">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="foot-col">
+                    <h3>GET IN TOUCH <div class="underline"><span></span></div></h3>
+                    <p>Check us out at any of our Social medial handle. Like, follow and drop a comment.</p>
+                    <div class="social-icons">
+                        <a href="https://web.facebook.com/cmdanigeria/" ><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/cmdanigeria/" ><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://www.youtube.com/channel/UCP8-rJlT4E0YleMomj-Ymag" ><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/cmdanigeria/" ><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright">Developed by © rabboni, Crucible Inc</p>
+         </footer>
+    
+    </body>
+</html>

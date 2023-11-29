@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    homepage
+{% endblock %}
+
+{% block style %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+    nav .navbar-nav .nav-item .nav-link
+    {
+        color: black;
+    }
+
+    body {
+        color: black;
+        background-color: antiquewhite;
+    }
+    #del_book {
+        width: 100px;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+
+
+    <div class="search">
+        <form action="/shelf" method="post">
+            <input type="hidden" name="csrf_token" value = "{{ csrf_token() }}" />
+            <input style="width: auto; background-color: white;" type="text" placeholder="Search book by Title or Author..." name="search">
+            <button class="btn btn-secondary"> Search </button>
+        </form>
+    </div>
+
+    <div id="showBooks">
+        {% if data %}
+        {% for row in data %}
+        <div>
+            {% if session["user_id"] in session["admins"] %}
+            <p class="shelf_text">Delete Book from Library
+                <form action="/del_book" method="post">
+                    <input type="hidden" value="{{ row.book_id }}" name="book_id">
+                    <input type="hidden" name="csrf_token" value = "{{ csrf_token() }}" />
+                    <input id="del_book" class="btn btn-danger" type="submit" value="Delete">
+                </form>
+            </p>  
+            {% endif %}
+            <div id="shelf_img">
+                <img src="{{ row.book_img_path }}" alt="Ocholi" class="cover_img">
+            </div>
+            <h6>Title: {{ row.book_title }}</h6>
+            <p class="shelf_text">Author(s): {{ row.author_names }}
+            <p class="shelf_text">Age of author: {{ row.author_ages }}</p>
+            <p class="shelf_text">Country: {{ row.author_countries }}</p>
+            <p class="shelf_text">Publication year: {{ row.book_year }}</p>
+            <p class="shelf_text">Publisher: {{ row.publisher_name }}</p>
+            <p class="shelf_text">Uploaded: {{ row.date_uploaded }}</p>
+            <p class="shelf_text">ISBN: {{ row.isbn }}</p>
+            <p class="shelf_text">Pages: {{ row.pages }}</p>
+            <br>
+            <a href="{{ row.book_path }}" download class="download-btn">Download
+                <i class="fa fa-download"></i>
+            </a>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div>
+            <form action="{{ url_for('recommend') }}">
+                <input type="hidden" name="csrf_token" value = "{{ csrf_token() }}" />
+                <button class="btn btn-secondary">Suggest Book</button>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Suggestions
+{% endblock %}
+
+{% block style %}
+<style>
+    nav .navbar-nav .nav-item .nav-link
+    {
+        color: black;
+    }
+    body {
+    background-color: antiquewhite;
+    color: black;
+   }
+</style>
+{% endblock %}
+
+{% block body %}
+    {% if suggestions%}
+    {% for suggestion in suggestions %}
+    <h4>Below are People's suggestions so far!</h4>
+        <div>
+            <table>
+                <thead>
+                    <th>Name</th>
+                    <th>Recommendation</th>
+                    <th>Date</th>
+                    <th>Delete</th>
+                </thead>
+                <tr>
+                    <td>{{suggestion.user_username}}</td>
+                    <td>{{suggestion.recommendation}}</td>
+                    <td>{{suggestion.datetime}}</td>
+                    <td><form action="/suggestionsPage" method="post">
+                            <input type="hidden" value="{{ suggestion.recommendation }}" name="suggest">
+                            <button class="btn btn-dark" >Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    {% endfor %}
+    {% else %}
+        <h2>There are No Book recommendations Yet!</h2>
+        <p>When Users make new recommendations they will appear here in a table</p>
+    {% endif %}
+{% endblock %}

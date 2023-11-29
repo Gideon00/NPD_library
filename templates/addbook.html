@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Admin Page
+{% endblock %}
+
+{% block style %}
+<style> body {
+   background-image: url('static/cmda-images/bg-image.jpg');
+   background-size: cover;
+   background-color: black;
+   }
+</style>
+{% endblock %}
+
+{% block body %}
+
+<div id="container" style="margin: 10px;">
+    <!-- Add this block to display flashed messages -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for message in messages %}
+                    <li class="alert alert-{{ message[1] }}">{{ message[0] }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+<center>
+    <div class="login-preview">
+        <h1>Upload Book</h1>
+        <form action="{{ url_for('addbook') }}" method="post" enctype="multipart/form-data">
+            {{ form.csrf_token }}
+            {{ form.hidden_tag() }}
+
+            <h3>Book Information</h3>
+            <strong>
+            <p>Title:<br>
+                {{ form.title( placeholder="Title" ) }}</p>
+            <p>Year:<br>
+                {{ form.year( placeholder="1999" ) }}</p>
+            <p>ISBN:<br>
+                {{ form.isbn( placeholder="ISBN NUMBER" ) }}</p>
+            <p>Publisher:<br>
+                {{ form.publisher( placeholder="Name" ) }}</p>
+            <p>PDF File:<br>
+                {{ form.pdf_file( class="btn btn-dark" ) }}</p>
+            <p>Book Cover Image:<br>
+                {{ form.cover_image( class="btn btn-dark" ) }}</p>
+
+            <h3>Author(s)'s Information</h3>
+            <p>Author:<br>
+                {{ form.author( placeholder="Name" ) }}</p>
+            <p>Author's Country:<br>
+                {{ form.country( placeholder="Country" ) }}</p>
+            <p>Author's Birthdate:<br>
+                {{ form.birth( placeholder="YYYY-MM-DD" ) }}</p></strong>
+            <input type="submit" value="Upload" class="btn btn-primary">
+        </form>
+    </div><br>
+
+</center>
+{% endblock%}

@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    login
+{% endblock %}
+
+{% block style %}
+<style> body {
+   background-image: url('static/cmda-images/bg-image.jpg');
+   background-size: cover;
+   background-color: black;
+   }
+</style>
+{% endblock %}
+
+{% block navbar_class %}
+   bg-transparent border navbar navbar-expand-md navbar-dark
+{% endblock %}
+
+{% block body %}
+    <!--HEADER SECTION-->
+    <header class="cmda-logo">
+        <img class="login_logo" src="static/cmda-images/cmda-logo.png" alt="logo">
+    </header>
+    
+    <!-- Login form -->
+<center>
+   <form class="login-preview" action="/login" method="post">
+      
+      <div class="login">LOGIN</div>
+
+      <div>
+         <p class="username">
+            Username/Email
+            <input required autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username or Email" placeholder="Username" type="text">
+         </p>  
+      </div>
+
+      <div>
+         <p class="password">Password
+            <input required class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password">
+         </p>
+         <input type="hidden" name="csrf_token" value = "{{ csrf_token() }}" />
+      </div>
+
+      <div class="login-button">
+         <button class="log-button" type="submit">Login</button>
+      </div>
+
+      <div class="signup-options">
+         <a href="/register" class="create-account-link">CREATE ACCOUNT</a>
+         <a href="/forgot_password" class="forgot-password-link">FORGOT PASSWORD</a> 
+      </div>
+   </form>
+</center>
+{% endblock %}
